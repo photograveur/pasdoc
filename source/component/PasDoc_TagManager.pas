@@ -1596,7 +1596,7 @@ begin
 
   while FOffset <= Length(Description) do
   begin
-    if ((Description[FOffset] = '@') and FindTag(FoundTag, Params, OffsetEnd)) or
+    if ((Description[FOffset] = '\') and FindTag(FoundTag, Params, OffsetEnd)) or
       (Markdown and FindMarkdownTag(FoundTag, Params, OffsetEnd)) then
     begin
       DoConvert;

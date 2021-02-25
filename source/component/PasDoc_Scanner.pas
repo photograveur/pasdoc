@@ -827,6 +827,16 @@ var
     DoMessage(5, pmtInformation, 'Trying to open include file "%s"...', [Name]);
     Result := FileExists(Name);
 
+    if (not Result) then
+    begin
+      DoMessage(5, pmtInformation, 'Trying to open include file "%s.pas" ...', [Name]);
+      if fileExists(Name + '.pas') then
+      begin
+        Name := Path + N + '.pas';
+        Result := true;
+      end;
+    end;
+
     if (not Result) and UseLowerCase then
     begin
       Name := Path + NLowerCase;

@@ -1703,7 +1703,7 @@ end;
 procedure TPasItem.RegisterTags(TagManager: TTagManager);
 begin
   inherited;
-  TTopLevelTag.Create(TagManager, 'abstract',
+  TTopLevelTag.Create(TagManager, 'brief',
     nil, {$IFDEF FPC}@{$ENDIF} StoreAbstractTag,
     [toParameterRequired, toRecursiveTags, toAllowOtherTagsInsideByDefault,
      toAllowNormalTextInside]);
