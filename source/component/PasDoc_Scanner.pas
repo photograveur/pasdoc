@@ -827,6 +827,9 @@ var
     DoMessage(5, pmtInformation, 'Trying to open include file "%s"...', [Name]);
     Result := FileExists(Name);
 
+    // Borland Pascal allows omission of suffix.
+    // The FPC supports this, too: It will look for *.inc, then *.pp and finally *.pas,
+    // confer `findincludefile` in `compiler/scanner.pas`.
     if (not Result) then
     begin
       DoMessage(5, pmtInformation, 'Trying to open include file "%s.pas" ...', [Name]);
@@ -837,6 +840,7 @@ var
       end;
     end;
 
+    // Borland Pascal will automatically convert file names to lower case:
     if (not Result) and UseLowerCase then
     begin
       Name := Path + NLowerCase;
@@ -882,7 +886,16 @@ var
 begin
   // Dequote name if necessary
   if (Length(N) > 2) and (N[1] = '''') and (N[Length(N)] = '''') then
+  begin
     N := Copy(N, 2, Length(N) - 2);
+    // Surrounding name by quotes implies _case-sensitive_ file name
+    UseLowerCase := false;
+  end
+  else
+  begin
+    // By default we will try a lower-cased name second.
+    UseLowerCase := true;
+  end;
   // "*.inc" is possible - substitute name of container file
   if ExtractFileNameNoExt(N) = '*' then
     N := ExtractFilePath(N) + ExtractFileNameNoExt(FTokenizers[FCurrentTokenizer].StreamName) +
@@ -891,7 +904,7 @@ begin
   NLowerCase := LowerCase(N);
   { If NLowerCase = N, avoid calling FileExists twice (as FileExists
     may be costly when generating large docs from many files) }
-  UseLowerCase := NLowerCase <> N;
+  UseLowerCase := UseLowerCase and (NLowerCase <> N);
 
   if not TryOpen(FTokenizers[FCurrentTokenizer].StreamPath) then
     if not TryOpenIncludeFilePaths then

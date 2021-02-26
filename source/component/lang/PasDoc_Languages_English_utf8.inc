@@ -2,7 +2,7 @@ RTransTable = (
     {trNoTrans} '<what?>', //no ID assigned, so far
     {trLanguage} 'English',
   //map
-    {trUnits} 'Units',
+    {trUnits} 'Modules',
     {trClassHierarchy} 'Tree',
     {trCio} 'Objects',
     {trNestedCR} 'Nested Classes and Records',
@@ -33,10 +33,10 @@ RTransTable = (
       {trTypes} 'Types',
         {trType} 'Type',
       {trVariables} 'Variables',
-      {trAuthors} 'Authors',
-        {trAuthor} 'Author',
-      {trCreated} 'Created',
-      {trLastModified} 'Last Modified',
+      {trAuthors} 'Maintainers',
+        {trAuthor} 'Maintainer',
+      {trCreated} 'Since',
+      {trLastModified} 'Version',
     {trSubroutine} 'Subroutine',
       {trParameters} 'Parameters',
       {trReturns} 'Returns',
@@ -70,7 +70,7 @@ RTransTable = (
     {trHeadlineFunctionsAndProcedures} 'All Functions and Procedures',
     {trHeadlineIdentifiers} 'All Identifiers',
     {trHeadlineTypes} 'All Types',
-    {trHeadlineUnits} 'All Units',
+    {trHeadlineUnits} 'All Modules',
     {trHeadlineVariables} 'All Variables',
     {trSummaryCio} 'Summary of Classes, Interfaces, Objects and Records',
   //column headings

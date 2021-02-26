@@ -4,6 +4,7 @@ body {
 	margin: 0ex;
 	
 	font-family: 'Linux Libertine O', serif;
+	font-size: 16pt;
 	color: orangered;
 }
 
@@ -140,6 +141,14 @@ body > div.container > div.content > table * th {
 }
 
 /* miscellaneous */
+
+code {
+	font-family: 'Linux Libertine Mono O', monospace;
+	font-size: 90%;
+	color: darkorange;
+	letter-spacing: -0.1ex;
+}
+
 body > div.container > div.content > hr {
 	width: 96%;
 	height: 0.2ex;

@@ -1399,9 +1399,9 @@ begin
   inherited;
   TTag.Create(TagManager, 'author', nil, {$IFDEF FPC}@{$ENDIF} StoreAuthorTag,
     [toParameterRequired]);
-  TTag.Create(TagManager, 'created', nil, {$IFDEF FPC}@{$ENDIF} StoreCreatedTag,
+  TTag.Create(TagManager, 'since', nil, {$IFDEF FPC}@{$ENDIF} StoreCreatedTag,
     [toParameterRequired, toRecursiveTags, toAllowNormalTextInside]);
-  TTag.Create(TagManager, 'lastmod', nil, {$IFDEF FPC}@{$ENDIF} StoreLastModTag,
+  TTag.Create(TagManager, 'version', nil, {$IFDEF FPC}@{$ENDIF} StoreLastModTag,
     [toParameterRequired, toRecursiveTags, toAllowNormalTextInside]);
   TTag.Create(TagManager, 'cvs', nil, {$IFDEF FPC}@{$ENDIF} StoreCVSTag,
     [toParameterRequired]);
